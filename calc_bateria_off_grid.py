@@ -32,9 +32,39 @@ class Calc_Bateria_off_grid:
         self.Capacidade_descarga_hora = Capacidade_descarga_hora
 
 
-    def __str__(self):...
+    def __str__(self):
+        """
+        Retorna uma representação textual do objeto Calc_Bateria.
 
-    def __repr__(self) -> str: ...
+        Returns:
+            str: Um resumo dos atributos da classe.
+        """
+        return (
+            f'*** Sistema FV Off-Grid: ***\n\n'
+            f'- **Energia consumida diária:** {self.eCD:.2f} Wh/dia\n'
+            f'- **Autonomia:** {self.autonomia} dias\n'
+            f'- **Profundidade de descarga:** {self.prof_descarga:.2%}\n'
+            f'- **Voltagem nominal:** {self.voltagem} V\n'
+            f'- **Tensão da bateria:** {self.tensao_bateria} V\n'
+            f'- **Capacidade de descaregamento por horas (Ah):** {self.Capacidade_descarga_hora} Ah => tabela fabricante\n\n'
+            f'- **Número de baterias em série:** {self.numero_bateria_Seria()}\n'
+            f'- **Número de baterias em paralelo:** {self.numero_bateria_paralelo()}\n'
+            f'- **Número total de baterias:** {self.numero_total_Baterias()}\n'
+        )
+
+    def __repr__(self) -> str:
+        """
+        Retorna uma representação canônica do objeto Calc_Bateria.
+
+        Returns:
+            str: Uma string que pode ser usada para recriar o objeto.
+        """
+        return (
+            f'Calc_Bateria(eCD={self.eCD}, autonomia={self.autonomia}, '
+            f'prof_descarga={self.prof_descarga}, voltagem={self.voltagem}, '
+            f'tensao_bateria={self.tensao_bateria}, Capacidade_descarga_hora={self.Capacidade_descarga_hora})'
+        )
+
 
     def energia_Consumida(self) -> float:
         """
