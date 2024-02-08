@@ -1,0 +1,1 @@
+# Calculadora-para-bateria-para-sistema-fotovoltaico-off-grid.
