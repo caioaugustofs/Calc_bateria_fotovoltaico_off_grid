@@ -31,6 +31,11 @@ class Calc_Bateria_off_grid:
         self.tensao_bateria = tensao_bateria
         self.Capacidade_descarga_hora = Capacidade_descarga_hora
 
+
+    def __str__(self):...
+
+    def __repr__(self) -> str: ...
+
     def energia_Consumida(self) -> float:
         """
         Calcula a energia consumida total pelo sistema.
