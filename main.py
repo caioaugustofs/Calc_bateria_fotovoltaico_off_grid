@@ -1,40 +1,13 @@
-class Calc_Bateria_off_grid:
+from calc_bateria_off_grid import Calc_Bateria_off_grid
 
-    def __init__(
-        self,
-        eCD: float = None,
-        autonomia: int = 2,
-        prof_descarga: float = 0.3,
-        voltagem: int = 24,
-        tensao_bateria: int = 12,
-        Capacidade_descarga_hora: int = None,
-    ) -> None:
-        self.eCD = eCD
-        self.autonomia = autonomia
-        self.prof_descarga = prof_descarga
-        self.voltagem = voltagem
-        self.tensao_bateria = tensao_bateria
-        self.Capacidade_descarga_hora = Capacidade_descarga_hora
 
-    def energia_Consumida(self) -> float:
- 
-        return self.eCD * self.autonomia
+eCD = 2325.93
+Cbat = 220
 
-    def energia_armazenada(self) -> float:
+bateria = Calc_Bateria_off_grid(eCD=eCD, Capacidade_descarga_hora=Cbat)
 
-        return self.energia_Consumida() / self.prof_descarga
+print('\n' * 2)
+print(bateria.__str__())
 
-    def capacidade_banco_baterias(self) -> float:
-
-        return self.energia_armazenada() / self.voltagem
-
-    def numero_bateria_Seria(self) -> int:
- 
-        return int(self.voltagem / self.tensao_bateria)
-
-    def numero_bateria_paralelo(self) -> int:
-
-        return int(round(self.capacidade_banco_baterias() / self.Capacidade_descarga_hora))
-
-    def numero_total_Baterias(self) -> int:
-        return self.numero_bateria_Seria() * self.numero_bateria_paralelo()
+print(bateria.__repr__())
+print('\n' * 2)
